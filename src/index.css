@@ -1,0 +1,29 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@500;600&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Space Grotesk", sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, monospace;
+  
+  --color-ink: #1B1E3D;
+  --color-ink-soft: #4A4E73;
+  --color-violet-custom: #5B21B6;
+  --color-violet-deep: #3F1685;
+  --color-magenta-custom: #C026A3;
+  --color-gold-custom: #F5B940;
+  --color-paper: #FAF8FC;
+  --color-paper-alt: #F1EDF9;
+  --color-line: #E3DCF0;
+}
+
+@layer base {
+  body {
+    font-family: var(--font-sans);
+    background-color: var(--color-paper);
+    color: var(--color-ink);
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+  }
+}

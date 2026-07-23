@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { Lock, Mail, Eye, EyeOff, ShieldCheck, AlertCircle, ArrowRight, Sparkles, X } from 'lucide-react';
+import { Lock, Mail, Eye, EyeOff, ShieldCheck, AlertCircle, ArrowRight, X } from 'lucide-react';
 import MarkUpLogo from './MarkUpLogo';
 
 interface LoginModalProps {
@@ -37,13 +37,6 @@ export default function LoginModal({ isOpen, onClose, onLoginSuccess, initialRol
       roleName: 'Mentor Panel',
       role: 'mentor' as const
     }
-  };
-
-  const handleAutofill = (type: 'admin' | 'student' | 'mentor') => {
-    const acc = ACCOUNTS[type];
-    setEmail(acc.email);
-    setPassword(acc.password);
-    setError(null);
   };
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -206,55 +199,6 @@ export default function LoginModal({ isOpen, onClose, onLoginSuccess, initialRol
                 )}
               </button>
             </form>
-
-            {/* Quick credentials autofill helper */}
-            <div className="mt-6 pt-5 border-t border-line">
-              <div className="flex items-center gap-1.5 text-[10px] font-mono uppercase tracking-widest text-ink-soft/70 mb-3 justify-center">
-                <Sparkles className="h-3 w-3 text-gold-custom animate-pulse" />
-                <span>Uji Coba Akun (Sekali Klik)</span>
-              </div>
-              
-              <div className="space-y-2">
-                <button
-                  type="button"
-                  onClick={() => handleAutofill('student')}
-                  disabled={isLoading}
-                  className="w-full text-left rounded-lg bg-paper-alt border border-line p-2 hover:bg-violet-custom/5 hover:border-violet-custom/40 transition-all flex items-center justify-between group"
-                >
-                  <div>
-                    <div className="text-[11px] font-bold text-ink group-hover:text-violet-custom transition-colors">Pelanggan / Student LMS</div>
-                    <div className="text-[9px] text-ink-soft font-mono">ID: mentee1@markup.id</div>
-                  </div>
-                  <span className="rounded bg-violet-custom/10 px-1.5 py-0.5 text-[8px] font-bold text-violet-custom uppercase">Student</span>
-                </button>
-
-                <button
-                  type="button"
-                  onClick={() => handleAutofill('mentor')}
-                  disabled={isLoading}
-                  className="w-full text-left rounded-lg bg-paper-alt border border-line p-2 hover:bg-emerald-600/5 hover:border-emerald-600/40 transition-all flex items-center justify-between group"
-                >
-                  <div>
-                    <div className="text-[11px] font-bold text-ink group-hover:text-emerald-600 transition-colors">Mentor Panel</div>
-                    <div className="text-[9px] text-ink-soft font-mono">ID: mentor1@markup.id</div>
-                  </div>
-                  <span className="rounded bg-emerald-100 px-1.5 py-0.5 text-[8px] font-bold text-emerald-800 uppercase">Mentor</span>
-                </button>
-
-                <button
-                  type="button"
-                  onClick={() => handleAutofill('admin')}
-                  disabled={isLoading}
-                  className="w-full text-left rounded-lg bg-paper-alt border border-line p-2 hover:bg-rose-600/5 hover:border-rose-600/40 transition-all flex items-center justify-between group"
-                >
-                  <div>
-                    <div className="text-[11px] font-bold text-ink group-hover:text-rose-600 transition-colors">Manajer / Admin Board</div>
-                    <div className="text-[9px] text-ink-soft font-mono">ID: administrator@markup.id</div>
-                  </div>
-                  <span className="rounded bg-rose-100 px-1.5 py-0.5 text-[8px] font-bold text-rose-800 uppercase">Admin</span>
-                </button>
-              </div>
-            </div>
           </div>
         </motion.div>
       </div>

@@ -657,7 +657,7 @@ export default function LandingPage({ packages, mentors, competitions = [], onSe
           <MarkUpLogo size={28} withText={true} />
           <p>© 2026. Pembimbingan & Akselerasi Kompetisi Bisnis Mahasiswa. All rights reserved.</p>
         </div>
-        <p className="font-mono text-[10px] opacity-75">Sistem Integrasi Wireframe Demo - Batch 2026</p>
+        <p className="font-mono text-[10px] opacity-75">Sistem Informasi Platform Mark-Up - Batch 2026</p>
       </footer>
     </div>
   );

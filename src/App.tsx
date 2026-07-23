@@ -156,20 +156,6 @@ export default function App() {
     localStorage.removeItem('markup_user_email');
   };
 
-  const handleDemoPanelClick = (role: 'landing' | 'student' | 'mentor' | 'admin') => {
-    if (role === 'landing') {
-      setActiveRole('landing');
-      return;
-    }
-
-    // Verify if the active role matches the selection and they are already logged in
-    if (isLoggedIn && activeRole === role) {
-      setActiveRole(role);
-    } else {
-      setIsLoginOpen(true);
-    }
-  };
-
   // Add new Competition
   const handleAddCompetition = (newComp: Omit<Competition, 'id'>) => {
     const comp: Competition = {
@@ -381,72 +367,6 @@ export default function App() {
 
   return (
     <div className="relative min-h-screen">
-      {/* Global Interactive View-Toggle Controller Panel (Floating on top of all sheets) */}
-      <div className="sticky top-0 z-[1000] w-full bg-slate-900 border-b border-slate-800 text-white py-2.5 px-4 shadow-xl">
-        <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-3 text-xs">
-          <div className="flex items-center gap-2">
-            <div className="flex h-5 w-5 items-center justify-center rounded-md bg-gold-custom text-slate-950 font-black text-[9px] animate-pulse">
-              ★
-            </div>
-            <p className="font-mono text-[10px] tracking-wider text-slate-300 uppercase">
-              Demo Panel: {isLoggedIn ? (
-                <span>Masuk Sebagai <span className="text-gold-custom font-bold">{currentUserEmail}</span></span>
-              ) : (
-                <span className="text-slate-400">Belum Masuk (Butuh Login untuk LMS/Panel)</span>
-              )}
-            </p>
-          </div>
-
-          <div className="flex flex-wrap items-center gap-1">
-            <button
-              onClick={() => handleDemoPanelClick('landing')}
-              className={`rounded-md px-3 py-1.5 font-mono text-[10px] tracking-wider uppercase font-bold transition-all ${
-                activeRole === 'landing' ? 'bg-gold-custom text-slate-950 shadow-md' : 'text-slate-400 hover:text-white hover:bg-white/5'
-              }`}
-            >
-              Landing Page
-            </button>
-
-            <button
-              onClick={() => handleDemoPanelClick('student')}
-              className={`rounded-md px-3 py-1.5 font-mono text-[10px] tracking-wider uppercase font-bold transition-all ${
-                activeRole === 'student' ? 'bg-violet-custom text-white shadow-md' : 'text-slate-400 hover:text-white hover:bg-white/5'
-              }`}
-            >
-              Student LMS
-            </button>
-
-            <button
-              onClick={() => handleDemoPanelClick('mentor')}
-              className={`rounded-md px-3 py-1.5 font-mono text-[10px] tracking-wider uppercase font-bold transition-all ${
-                activeRole === 'mentor' ? 'bg-emerald-600 text-white shadow-md' : 'text-slate-400 hover:text-white hover:bg-white/5'
-              }`}
-            >
-              Mentor Panel
-            </button>
-
-            <button
-              onClick={() => handleDemoPanelClick('admin')}
-              className={`rounded-md px-3 py-1.5 font-mono text-[10px] tracking-wider uppercase font-bold transition-all ${
-                activeRole === 'admin' ? 'bg-rose-600 text-white shadow-md' : 'text-slate-400 hover:text-white hover:bg-white/5'
-              }`}
-            >
-              Admin Board
-            </button>
-
-            {isLoggedIn && (
-              <button
-                onClick={handleLogout}
-                className="rounded-md px-2.5 py-1.5 bg-rose-600/20 hover:bg-rose-600 text-rose-300 hover:text-white font-mono text-[9px] tracking-wider uppercase font-bold transition-all"
-                title="Selesaikan Sesi Anda"
-              >
-                Logout
-              </button>
-            )}
-          </div>
-        </div>
-      </div>
-
       {/* Render selected screen view based on active tab state */}
       <AnimatePresence mode="wait">
         <motion.div
@@ -455,7 +375,7 @@ export default function App() {
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -5 }}
           transition={{ duration: 0.15 }}
-          className="min-h-[calc(100vh-45px)]"
+          className="min-h-screen"
         >
           {activeRole === 'landing' && (
             <LandingPage

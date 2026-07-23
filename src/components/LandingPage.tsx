@@ -169,9 +169,6 @@ export default function LandingPage({ packages, mentors, competitions = [], onSe
           <h2 className="font-display text-2xl md:text-3xl font-extrabold text-ink leading-tight">
             Empat langkah menuju panggung juara, tanpa admin ribet
           </h2>
-          <p className="text-sm text-ink-soft mt-2">
-            Lupakan alur lama: isi form manual → tunggu dichat WA admin → mencocokkan jadwal berhari-hari. Di Mark-Up, semua terintegrasi di web dalam beberapa detik.
-          </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-1.5 rounded-2xl bg-ink p-6 text-white shadow-xl relative overflow-hidden">
@@ -488,9 +485,6 @@ export default function LandingPage({ packages, mentors, competitions = [], onSe
             <h2 className="font-display text-2xl md:text-3xl font-extrabold text-ink leading-tight">
               Jadwal & Info Lomba Terdekat
             </h2>
-            <p className="text-sm text-ink-soft mt-1">
-              Daftar kompetisi bisnis dan marketing nasional terverifikasi yang bisa Anda ikuti. Gunakan materi Mark-Up untuk mempersiapkan diri dan memenangkan piala juara!
-            </p>
           </div>
           <div className="flex items-center gap-2 bg-[#FAF8FC] border border-[#E3DCF0] rounded-xl px-4 py-2.5 shrink-0 self-start md:self-auto shadow-sm">
             <span className="h-2 w-2 rounded-full bg-emerald-500 animate-pulse" />
@@ -606,9 +600,6 @@ export default function LandingPage({ packages, mentors, competitions = [], onSe
         <div className="max-w-2xl mb-10">
           <span className="font-mono text-xs font-bold tracking-widest text-magenta-custom uppercase block mb-1">Barisan Ahli</span>
           <h2 className="font-display text-2xl md:text-3xl font-extrabold text-ink">Belajar Langsung Dari Para Juara</h2>
-          <p className="text-sm text-ink-soft mt-1">
-            Bukan sekadar teori. Semua mentor kami adalah eks-finalis dan pemenang kompetisi bisnis tingkat nasional & regional bergengsi.
-          </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
